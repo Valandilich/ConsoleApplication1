@@ -56,4 +56,5 @@ int heap_popTop(vector<int> &a)
 	a[tail] = a[0];
 	a[0] = tt;
 	heap_shiftdown(a, 0);
+	return a[0];
 }

@@ -4,12 +4,14 @@
 #include "stdafx.h"
 #include "mergeSort.h"
 #include <stdio.h>
+#include <iostream>
 #include<vector>
 #include<map>
 #include<string>
 #include <algorithm>
 #include "SlipWindow.h"
 #include "heap.h"
+#include "quickSort.h"
 using namespace std;
 typedef map<char, vector<char>> SPEPAIR;
 //vector<char> makeStr2Vec(string instr)
@@ -122,16 +124,10 @@ typedef map<char, vector<char>> SPEPAIR;
 //}
 int main()
 {
-	vector<int> a = { 2,3,4,2,6,2,5,1};
+	vector<int> a = { 4,1,5,2,9,8,7,6,3};
 	int lastleft = a.size() - 1;
-	int lastparent = heap_go_parent(lastleft);
-	while(lastparent>=0)
-	{ 
-		heap_shiftdown(a, lastparent);
-		lastparent--;
-	}
-	heap_insert(a, 100);
-	heap_insert(a, 7);
+	quickSort(a, 0, lastleft);
+	
 	return 0;
 }
 
