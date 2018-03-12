@@ -126,7 +126,7 @@ int main()
 {
 	vector<int> a = { 4,1,5,2,9,8,7,6,3};
 	int lastleft = a.size() - 1;
-	quickSort(a, 0, lastleft);
+	mergeSort(a);
 	
 	return 0;
 }
