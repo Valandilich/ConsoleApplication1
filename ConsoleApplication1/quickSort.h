@@ -43,36 +43,3 @@ void quickSort(vector<int> &inPut,int head,int tail)
 	quickSort(inPut, m_head+1, tail);
 	return;
 }
-
-void swap(vector<int> &arr, int a, int b)
-{
-	int t = arr[a];
-	arr[a] = arr[b];
-	arr[b] = t;
-}
-void QuickSort(vector<int> &input, int head, int tail)
-{
-	if (head >= tail)
-		return;
-	int p = head;
-	int q = tail;
-	while (p < q)
-	{
-		while (p <= tail && input[head] >= input[p])
-			p++;
-		while (q >= head && input[head] < input[q])
-			q--;
-		if (p < q)
-		{
-			swap(input, p, q);
-			p++;
-			q--;
-		}
-	}
-	if (input[head] > input[p])
-		swap(input, head, p);
-	else
-		swap(input, head, p - 1);
-	QuickSort(input, head, p - 1);
-	QuickSort(input, p + 1, tail);
-}
