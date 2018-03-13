@@ -129,6 +129,8 @@ int main()
 	MyTreeS ATree;
 	ATree.MakeTree(a);
 	vector<int>b = ATree.preTravel();
+	vector<int>c = ATree.midTravel();
+	vector<int>d = ATree.postTravel();
 	return 0;
 }
 
