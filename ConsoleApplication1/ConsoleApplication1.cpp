@@ -12,6 +12,7 @@
 #include "SlipWindow.h"
 #include "heap.h"
 #include "quickSort.h"
+#include "tree.h"
 using namespace std;
 typedef map<char, vector<char>> SPEPAIR;
 //vector<char> makeStr2Vec(string instr)
@@ -125,8 +126,9 @@ typedef map<char, vector<char>> SPEPAIR;
 int main()
 {
 	vector<int> a = { 4,1,5,2,9,8,7,6,3};
-	int lastleft = a.size() - 1;
-	mergeSort(a);
+	MyTreeS ATree;
+	ATree.MakeTree(a);
+	vector<int>b = ATree.preTravel();
 	return 0;
 }
 
