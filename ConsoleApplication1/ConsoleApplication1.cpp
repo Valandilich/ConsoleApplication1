@@ -15,6 +15,8 @@
 #include "tree.h"
 using namespace std;
 typedef map<char, vector<char>> SPEPAIR;
+
+
 //vector<char> makeStr2Vec(string instr)
 //{
 //	vector<char> outstr;
@@ -131,6 +133,12 @@ int main()
 	vector<int>b = ATree.preTravel();
 	vector<int>c = ATree.midTravel();
 	vector<int>d = ATree.postTravel();
+	vector<int>e = ATree.SerialOutPut();
+	ATree.Mirror();
+	b = ATree.preTravel();
+	c = ATree.midTravel();
+	d = ATree.postTravel();
+	e = ATree.SerialOutPut();
 	return 0;
 }
 

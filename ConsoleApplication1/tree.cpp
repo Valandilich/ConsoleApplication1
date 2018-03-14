@@ -111,3 +111,45 @@ vector<int> MyTreeS::postTravel()
 	result.push_back(r->value);
 	return result;
 }
+
+vector<int> MyTreeS::SerialOutPut()
+{
+	vector<int> result;
+	vector<MyTreeNodeS*>optQueue;
+	MyTreeNodeS* r = &Root;
+	optQueue.push_back(r);
+	while (!optQueue.empty())
+	{
+		vector<MyTreeNodeS*>::iterator it = optQueue.begin();
+		if ((*it)->isNULL)
+			break;
+		result.push_back((*it)->value);
+		if((*it)->Left)
+			optQueue.push_back((*it)->Left);
+		it = optQueue.begin();
+		if ((*it)->Right)
+			optQueue.push_back((*it)->Right);
+		optQueue.erase(optQueue.begin());
+	}
+	return result;
+}
+
+void Mirror_sub(MyTreeNodeS*r)
+{
+	if (!r)
+		return;
+	Mirror_sub(r->Left);
+	Mirror_sub(r->Right);
+	MyTreeNodeS* temp = r->Left;
+	r->Left = r->Right;
+	r->Right = temp;
+	return;
+}
+void MyTreeS::Mirror()
+{
+	MyTreeNodeS* r = &Root;
+	if (r->isNULL)
+		return;
+	Mirror_sub(r);
+	return;
+}

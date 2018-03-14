@@ -146,6 +146,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="heap.h" />
+    <ClInclude Include="LinkList.h" />
     <ClInclude Include="mergeSort.h" />
     <ClInclude Include="quickSort.h" />
     <ClInclude Include="SlipWindow.h" />

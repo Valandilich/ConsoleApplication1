@@ -61,7 +61,11 @@ struct MyTreeNodeS
 	}
 	~MyTreeNodeS()
 	{
-		;
+		if (Left)
+			delete Left;
+		if (Right)
+			delete Right;
+		Left = Right = NULL;
 	}
 };
 class MyTreeS
@@ -74,6 +78,8 @@ public:
 	vector<int> preTravel();
 	vector<int> midTravel();
 	vector<int> postTravel();
+	vector<int> SerialOutPut();
+	void Mirror();
 private:
 	MyTreeNodeS Root;
 };
