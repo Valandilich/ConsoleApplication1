@@ -34,7 +34,7 @@ bool MyTreeS::MakeTree(vector<int> inputList)
 	OptQueue.clear();
 	return true;
 }
-void preTravel_sub(MyTreeNodeS* r, vector<int>& re)
+void MyTreeS:: preTravel_sub(MyTreeNodeS* r, vector<int>& re)
 {
 	if (!r)
 		return;
@@ -62,7 +62,7 @@ vector<int> MyTreeS::preTravel()
 
 	return result;
 }
-void midTravel_sub(MyTreeNodeS* r, vector<int>&re)
+void MyTreeS:: midTravel_sub(MyTreeNodeS* r, vector<int>&re)
 {
 	if (!r)
 		return;
@@ -88,7 +88,7 @@ vector<int> MyTreeS::midTravel()
 	return result;
 }
 
-void postTravel_sub(MyTreeNodeS* r, vector<int>& re)
+void MyTreeS::postTravel_sub(MyTreeNodeS* r, vector<int>& re)
 {
 	if (!r)
 		return;
@@ -134,7 +134,72 @@ vector<int> MyTreeS::SerialOutPut()
 	return result;
 }
 
-void Mirror_sub(MyTreeNodeS*r)
+void MyTreeS::Rebuild_MidPre(vector<int>& Mid, vector<int>& Pre)
+{
+	MyTreeNodeS* r = Rebuild_MidPre_Sub(Mid, Pre);
+	Root.value = r->value;
+	Root.Left = r->Left;
+	Root.Right = r->Right;
+	Root.isNULL = r->isNULL;
+	return;
+}
+
+void MyTreeS::Rebuild_MidPost(vector<int>& Mid, vector<int>& Post)
+{
+	vector<int>::reverse_iterator itM = Mid.rbegin();
+	vector<int>::reverse_iterator itP = Post.rbegin();
+	vector<int> rMid;
+	vector<int> rPost;
+	while (itM != Mid.rend() && itP != Post.rend())
+	{
+		rMid.push_back(*itM);
+		rPost.push_back(*itP);
+		itM++;
+		itP++;
+	}
+	MyTreeNodeS* r = Rebuild_MidPost_Sub(rMid, rPost);
+	Root.value = r->value;
+	Root.Left = r->Left;
+	Root.Right = r->Right;
+	Root.isNULL = r->isNULL;
+	return;
+}
+
+MyTreeNodeS* MyTreeS::Rebuild_MidPre_Sub(vector<int>& Mid, vector<int>& Pre)
+{
+	if (Mid.size() < 1 || Pre.size() < 1)
+	{
+		return NULL;
+	}
+	if (Mid.size() != Pre.size())
+		return NULL;
+	vector<int> LMid;
+	vector<int> LPre;
+	vector<int> RMid;
+	vector<int> RPre;
+	int i = 0;
+	while (Mid.at(i) != Pre.at(0) && i<Mid.size())
+	{
+		LMid.push_back(Mid.at(i));
+		LPre.push_back(Pre.at(i + 1));
+		i++;
+	}
+	MyTreeNodeS* r = new MyTreeNodeS();
+	r->value = Pre.at(0);
+	r->isNULL = false;
+	i+=1;
+	while (i < Pre.size() && i<Mid.size())
+	{
+		RPre.push_back(Pre.at(i));
+		RMid.push_back(Mid.at(i));
+		i++;
+	}
+	r->Left = Rebuild_MidPre_Sub(LMid, LPre);
+	r->Right = Rebuild_MidPre_Sub(RMid, RPre);
+	return r;
+}
+
+void MyTreeS::Mirror_sub(MyTreeNodeS*r)
 {
 	if (!r)
 		return;
@@ -152,4 +217,38 @@ void MyTreeS::Mirror()
 		return;
 	Mirror_sub(r);
 	return;
+}
+
+MyTreeNodeS* MyTreeS::Rebuild_MidPost_Sub(vector<int>& Mid, vector<int>& Post)
+{
+	if (Mid.size() < 1 || Post.size() < 1)
+	{
+		return NULL;
+	}
+	if (Mid.size() != Post.size())
+		return NULL;
+	vector<int> LMid;
+	vector<int> LPre;
+	vector<int> RMid;
+	vector<int> RPre;
+	int i = 0;
+	while (Mid.at(i) != Post.at(0) && i<Mid.size())
+	{
+		RMid.push_back(Mid.at(i));
+		RPre.push_back(Post.at(i + 1));
+		i++;
+	}
+	MyTreeNodeS* r = new MyTreeNodeS();
+	r->value = Post.at(0);
+	r->isNULL = false;
+	i += 1;
+	while (i < Post.size() && i<Mid.size())
+	{
+		LPre.push_back(Post.at(i));
+		LMid.push_back(Mid.at(i));
+		i++;
+	}
+	r->Left = Rebuild_MidPost_Sub(LMid, LPre);
+	r->Right = Rebuild_MidPost_Sub(RMid, RPre);
+	return r;
 }

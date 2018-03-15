@@ -79,7 +79,17 @@ public:
 	vector<int> midTravel();
 	vector<int> postTravel();
 	vector<int> SerialOutPut();
+	void  Rebuild_MidPre(vector<int> &Mid, vector<int>&Pre);
+	void Rebuild_MidPost(vector<int> &Mid, vector<int> &Post);
 	void Mirror();
+private:
+	MyTreeNodeS* Rebuild_MidPre_Sub(vector<int> &Mid, vector<int>&Pre);
+	MyTreeNodeS* Rebuild_MidPost_Sub(vector<int> &Mid, vector<int>&Post);
+	void preTravel_sub(MyTreeNodeS * r, vector<int>& re);
+	void midTravel_sub(MyTreeNodeS * r, vector<int>& re);
+	void postTravel_sub(MyTreeNodeS * r, vector<int>& re);
+	void Mirror_sub(MyTreeNodeS * r);
+
 private:
 	MyTreeNodeS Root;
 };

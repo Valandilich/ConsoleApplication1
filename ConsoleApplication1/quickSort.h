@@ -9,6 +9,7 @@ bool MySwap(vector<int> &inPut, int a, int b)
 	int t = inPut[a];
 	inPut[a] = inPut[b];
 	inPut[b] = t;
+	return true;
 }
 int Devide(vector<int> &inPut, int head, int tail)
 {

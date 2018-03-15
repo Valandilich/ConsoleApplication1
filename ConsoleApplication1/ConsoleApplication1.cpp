@@ -134,6 +134,12 @@ int main()
 	vector<int>c = ATree.midTravel();
 	vector<int>d = ATree.postTravel();
 	vector<int>e = ATree.SerialOutPut();
+	MyTreeS BTree;
+	BTree.Rebuild_MidPre(c, b);
+	MyTreeS CTree;
+	CTree.Rebuild_MidPost(c, d);
+	vector<int>BB = BTree.SerialOutPut();
+	vector<int>CC = CTree.SerialOutPut();
 	ATree.Mirror();
 	b = ATree.preTravel();
 	c = ATree.midTravel();
