@@ -1,4 +1,5 @@
 #pragma once
+#include<vector>
 using namespace std;
 struct MyLinkNodeS
 {
@@ -13,10 +14,14 @@ struct MyLinkNodeS
 
 class MyLinkList
 {
+
 private:
-	MyLinkNodeS Head;
+	MyLinkNodeS* Head;
 
 public:
-	bool AddNode(int a);
-	bool RemoveNode(int a);
+	MyLinkList() { Head = NULL; }
+	bool AddNode(int offset, int value);
+	int RemoveNode(int offset);
+	bool Reverse();
+	void MakeList(vector<int> &input);
 };

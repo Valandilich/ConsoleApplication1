@@ -165,6 +165,16 @@ void MyTreeS::Rebuild_MidPost(vector<int>& Mid, vector<int>& Post)
 	return;
 }
 
+bool isSubTree(MyTreeS & A, MyTreeS & B)
+{
+	if (B.GetRoot().isNULL || A.GetRoot().isNULL)
+		return false;
+	return isSubTree_sub(&(A.GetRoot()), &(B.GetRoot())) ||
+		isSubTree_sub(A.GetRoot().Left, &(B.GetRoot())) ||
+		isSubTree_sub(A.GetRoot().Right,  &(B.GetRoot()));
+	return false;
+}
+
 MyTreeNodeS* MyTreeS::Rebuild_MidPre_Sub(vector<int>& Mid, vector<int>& Pre)
 {
 	if (Mid.size() < 1 || Pre.size() < 1)
@@ -209,6 +219,16 @@ void MyTreeS::Mirror_sub(MyTreeNodeS*r)
 	r->Left = r->Right;
 	r->Right = temp;
 	return;
+}
+bool isSubTree_sub(MyTreeNodeS * A, MyTreeNodeS * B)
+{
+	if (!B)
+		return true;
+	if (!A)
+		return false;
+	if (A->value == B->value)
+		return (isSubTree_sub(A->Left, B->Left) && isSubTree_sub(A->Right, B->Right));
+	return false;
 }
 void MyTreeS::Mirror()
 {

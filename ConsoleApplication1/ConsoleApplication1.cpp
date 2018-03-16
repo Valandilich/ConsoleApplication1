@@ -15,6 +15,7 @@
 #include "tree.h"
 #include <functional>
 #include "search.h"
+#include "LinkList.h"
 using namespace std;
 typedef map<char, vector<char>> SPEPAIR;
 
@@ -130,27 +131,23 @@ typedef map<char, vector<char>> SPEPAIR;
 int main()
 {
  	vector<int> a = { 4,1,5,2,9,8,7,6,3};
-	sort(a.begin(), a.end(),less<int>());
-	int N = 10;
-	int k = BinarySearch(a, 0, a.size() - 1, N);
-// 	MyTreeS ATree;
-// 	ATree.MakeTree(a);
-// 	vector<int>b = ATree.preTravel();
-// 	vector<int>c = ATree.midTravel();
-// 	vector<int>d = ATree.postTravel();
-// 	vector<int>e = ATree.SerialOutPut();
-// 	MyTreeS BTree;
-// 	BTree.Rebuild_MidPre(c, b);
-// 	MyTreeS CTree;
-// 	CTree.Rebuild_MidPost(c, d);
-// 	vector<int>BB = BTree.SerialOutPut();
-// 	vector<int>CC = CTree.SerialOutPut();
-// 	ATree.Mirror();
-// 	b = ATree.preTravel();
-// 	c = ATree.midTravel();
-// 	d = ATree.postTravel();
-// 	e = ATree.SerialOutPut();
-	
+	vector<int> b = { 1,2,9,6,7 };
+ 	//MyTreeS ATree;
+ 	//ATree.MakeTree(a);
+ 	//vector<int>b = ATree.preTravel();
+ 	//vector<int>c = ATree.midTravel();
+ 	//vector<int>d = ATree.postTravel();
+ 	//vector<int>e = ATree.SerialOutPut();
+ 	//MyTreeS BTree;
+ 	//BTree.MakeTree(b);
+ 	//MyTreeS CTree;
+ 	//CTree.Rebuild_MidPost(c, d);
+ 	//vector<int>BB = BTree.SerialOutPut();
+ 	//vector<int>CC = CTree.SerialOutPut();
+	//bool bbb = isSubTree(ATree, BTree);
+	MyLinkList AList;
+	AList.MakeList(a);
+	AList.Reverse();
 	return 0;
 }
 

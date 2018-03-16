@@ -68,6 +68,7 @@ struct MyTreeNodeS
 		Left = Right = NULL;
 	}
 };
+
 class MyTreeS
 {
 public:
@@ -81,6 +82,7 @@ public:
 	vector<int> SerialOutPut();
 	void  Rebuild_MidPre(vector<int> &Mid, vector<int>&Pre);
 	void Rebuild_MidPost(vector<int> &Mid, vector<int> &Post);
+
 	void Mirror();
 private:
 	MyTreeNodeS* Rebuild_MidPre_Sub(vector<int> &Mid, vector<int>&Pre);
@@ -89,7 +91,8 @@ private:
 	void midTravel_sub(MyTreeNodeS * r, vector<int>& re);
 	void postTravel_sub(MyTreeNodeS * r, vector<int>& re);
 	void Mirror_sub(MyTreeNodeS * r);
-
 private:
 	MyTreeNodeS Root;
 };
+bool isSubTree(MyTreeS &A, MyTreeS &B);
+bool isSubTree_sub(MyTreeNodeS* A, MyTreeNodeS* B);
