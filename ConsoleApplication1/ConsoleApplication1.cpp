@@ -131,7 +131,8 @@ typedef map<char, vector<char>> SPEPAIR;
 int main()
 {
  	vector<int> a = { 4,1,5,2,9,8,7,6,3};
-	vector<int> b = { 1,2,9,6,7 };
+	vector<int> b = mergesort(a, 0, a.size() - 1);
+	
  	//MyTreeS ATree;
  	//ATree.MakeTree(a);
  	//vector<int>b = ATree.preTravel();
@@ -145,9 +146,11 @@ int main()
  	//vector<int>BB = BTree.SerialOutPut();
  	//vector<int>CC = CTree.SerialOutPut();
 	//bool bbb = isSubTree(ATree, BTree);
-	MyLinkList AList;
-	AList.MakeList(a);
-	AList.Reverse();
+	//MyLinkList AList;
+	//AList.MakeList(a);
+	//AList.RemoveNode(0);
+	//vector<int>c = AList.ListPrint();
+	//AList.Reverse();
 	return 0;
 }
 

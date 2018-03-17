@@ -51,7 +51,7 @@ int MyLinkList::RemoveNode(int offset)
 			delete q;
 			return valuerr;
 		}			
-		p++;
+		p=p->next;
 		i++;
 	}
 	return 0x23333;
@@ -100,4 +100,16 @@ void MyLinkList::MakeList(vector<int>& input)
 	}
 	p->next = NULL;
 	return;
+}
+
+vector<int> MyLinkList::ListPrint()
+{
+	vector<int> re;
+	MyLinkNodeS*p = Head;
+	while (p)
+	{
+		re.push_back(p->value);
+		p = p->next;
+	}
+	return re;
 }

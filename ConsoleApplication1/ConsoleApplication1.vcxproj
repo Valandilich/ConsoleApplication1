@@ -148,6 +148,7 @@
     <ClInclude Include="heap.h" />
     <ClInclude Include="LinkList.h" />
     <ClInclude Include="mergeSort.h" />
+    <ClInclude Include="myCoreF.h" />
     <ClInclude Include="quickSort.h" />
     <ClInclude Include="SlipWindow.h" />
     <ClInclude Include="search.h" />

@@ -24,4 +24,6 @@ public:
 	int RemoveNode(int offset);
 	bool Reverse();
 	void MakeList(vector<int> &input);
+	vector<int> ListPrint();
+
 };
