@@ -150,6 +150,7 @@
     <ClInclude Include="mergeSort.h" />
     <ClInclude Include="myCoreF.h" />
     <ClInclude Include="quickSort.h" />
+    <ClInclude Include="RBTree.h" />
     <ClInclude Include="SlipWindow.h" />
     <ClInclude Include="search.h" />
     <ClInclude Include="stdafx.h" />
@@ -159,6 +160,7 @@
   <ItemGroup>
     <ClCompile Include="ConsoleApplication1.cpp" />
     <ClCompile Include="LinkList.cpp" />
+    <ClCompile Include="RBTree.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
