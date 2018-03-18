@@ -29,7 +29,7 @@ private:
 	void Tree_Delete_Fix(RBTreeNode* z);
 	void Node_Left_Rotate(RBTreeNode* z);
 	void Node_Right_Rotate(RBTreeNode* z);
-
+	RBTreeNode* Find_in(RBTreeNode* p, int n);
 public:
 	void Insert(RBTreeNode*);
 	void Delete(RBTreeNode*);
