@@ -16,6 +16,8 @@
 #include <functional>
 #include "search.h"
 #include "LinkList.h"
+#include "virtual.h"
+#include "myString.h"
 using namespace std;
 typedef map<char, vector<char>> SPEPAIR;
 
@@ -132,7 +134,12 @@ int main()
 {
  	vector<int> a = { 4,1,5,2,9,8,7,6,3};
 	vector<int> b = mergesort(a, 0, a.size() - 1);
+	int cc = myquicksort(a, 0, a.size() - 1, 6);
+	C testc;
+	testc.vfun();
 	
+	myString teststrA("abcde");
+	myString teststrB(teststrA);
  	//MyTreeS ATree;
  	//ATree.MakeTree(a);
  	//vector<int>b = ATree.preTravel();

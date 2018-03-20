@@ -61,18 +61,18 @@ int mydevide(vector<int>& input, int head, int tail)
 	int m_tail = tail;
 	while (m_head < m_tail)
 	{
-		while (m_head < m_tail&&input.at(m_head) <= mid)
+		while (m_head < m_tail&&input.at(m_head) >= mid)
 			m_head++;
-		while (m_head < m_tail&&input.at(m_tail) > mid)
+		while (m_head < m_tail&&input.at(m_tail) < mid)
 			m_tail--;
-		if (input.at(m_head) > input.at(m_tail))
+		if (input.at(m_head) < input.at(m_tail))
 		{
 			myswap(input, m_head, m_tail);
 			m_head++;
 			m_tail--;
 		}
 	}
-	if (input.at(m_head) > mid)
+	if (input.at(m_head) < mid)
 	{
 		myswap(input, head, m_head - 1);
 		return m_head - 1;
@@ -84,12 +84,15 @@ int mydevide(vector<int>& input, int head, int tail)
 	}
 }
 
-void myquicksort(vector<int> &input, int head, int tail)
+int myquicksort(vector<int> &input, int head, int tail, int K)
 {
+	int result;
 	if (tail - head < 1)
-		return;
+		return -1;
 	int mid = mydevide(input, head, tail);
-	myquicksort(input, head, mid - 1);
-	myquicksort(input, mid + 1, tail);
-	return;
+	if(mid>K-1)
+		result = myquicksort(input, head, mid - 1,K);
+	else if(mid<K-1)
+		result = myquicksort(input, mid + 1, tail,K);
+	return input[mid];
 }
