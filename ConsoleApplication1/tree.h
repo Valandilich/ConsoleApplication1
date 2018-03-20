@@ -82,9 +82,10 @@ public:
 	vector<int> SerialOutPut();
 	void  Rebuild_MidPre(vector<int> &Mid, vector<int>&Pre);
 	void Rebuild_MidPost(vector<int> &Mid, vector<int> &Post);
-
+	MyTreeNodeS* getTheLowestRoot(int a, int b);
 	void Mirror();
 private:
+	MyTreeNodeS* getTheLowestRoot_sub(MyTreeNodeS* r, int a, int b);
 	MyTreeNodeS* Rebuild_MidPre_Sub(vector<int> &Mid, vector<int>&Pre);
 	MyTreeNodeS* Rebuild_MidPost_Sub(vector<int> &Mid, vector<int>&Post);
 	void preTravel_sub(MyTreeNodeS * r, vector<int>& re);
@@ -96,3 +97,4 @@ private:
 };
 bool isSubTree(MyTreeS &A, MyTreeS &B);
 bool isSubTree_sub(MyTreeNodeS* A, MyTreeNodeS* B);
+

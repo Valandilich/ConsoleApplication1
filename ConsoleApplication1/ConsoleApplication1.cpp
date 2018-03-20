@@ -133,15 +133,10 @@ typedef map<char, vector<char>> SPEPAIR;
 int main()
 {
  	vector<int> a = { 4,1,5,2,9,8,7,6,3};
-	vector<int> b = mergesort(a, 0, a.size() - 1);
-	int cc = myquicksort(a, 0, a.size() - 1, 6);
-	C testc;
-	testc.vfun();
 	
-	myString teststrA("abcde");
-	myString teststrB(teststrA);
- 	//MyTreeS ATree;
- 	//ATree.MakeTree(a);
+ 	MyTreeS ATree;
+ 	ATree.MakeTree(a);
+	MyTreeNodeS* re = ATree.getTheLowestRoot(6,7);
  	//vector<int>b = ATree.preTravel();
  	//vector<int>c = ATree.midTravel();
  	//vector<int>d = ATree.postTravel();

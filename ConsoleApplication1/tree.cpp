@@ -165,6 +165,32 @@ void MyTreeS::Rebuild_MidPost(vector<int>& Mid, vector<int>& Post)
 	return;
 }
 
+MyTreeNodeS * MyTreeS::getTheLowestRoot(int a, int b)
+{
+	MyTreeNodeS* r = &Root;
+	return getTheLowestRoot_sub(r, a, b);
+}
+
+MyTreeNodeS * MyTreeS::getTheLowestRoot_sub(MyTreeNodeS* r, int a, int b)
+{
+	if (!r)
+		return NULL;
+	else if (r->value == a)
+		return r;
+	else if (r->value == b)
+		return r;
+	MyTreeNodeS* L = getTheLowestRoot_sub(r->Left, a, b);
+	MyTreeNodeS* R = getTheLowestRoot_sub(r->Right, a, b);
+	if (L && !R)
+		return L;
+	else if (!L&&R)
+		return R;
+	else if (L&& R)
+		return r;
+	else
+		return NULL;
+}
+
 bool isSubTree(MyTreeS & A, MyTreeS & B)
 {
 	if (B.GetRoot().isNULL || A.GetRoot().isNULL)
