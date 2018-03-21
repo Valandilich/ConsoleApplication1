@@ -57,6 +57,9 @@
     <ClInclude Include="myString.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="KMP.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

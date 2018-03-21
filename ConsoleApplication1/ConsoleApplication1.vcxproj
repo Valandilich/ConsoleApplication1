@@ -146,6 +146,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="heap.h" />
+    <ClInclude Include="KMP.h" />
     <ClInclude Include="LinkList.h" />
     <ClInclude Include="mergeSort.h" />
     <ClInclude Include="myCoreF.h" />

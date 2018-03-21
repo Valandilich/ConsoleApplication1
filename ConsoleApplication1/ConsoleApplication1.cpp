@@ -18,6 +18,7 @@
 #include "LinkList.h"
 #include "virtual.h"
 #include "myString.h"
+#include"KMP.h"
 using namespace std;
 typedef map<char, vector<char>> SPEPAIR;
 
@@ -133,7 +134,15 @@ typedef map<char, vector<char>> SPEPAIR;
 int main()
 {
  	vector<int> a = { 4,1,5,2,9,8,7,6,3};
-	
+	vector<int> n;
+	string s = "abeacdabcde";
+	int *nn = new int[s.length()];
+	getNext(s.c_str(), nn);
+	for (int i = 0; i < s.length(); i++)
+	{
+		n.push_back(nn[i]);
+	}
+
  	MyTreeS ATree;
  	ATree.MakeTree(a);
 	MyTreeNodeS* re = ATree.getTheLowestRoot(6,7);
