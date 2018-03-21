@@ -136,6 +136,8 @@ int main()
  	vector<int> a = { 4,1,5,2,9,8,7,6,3};
 	vector<int> n;
 	string s = "abeacdabcde";
+	string bba = "abc";
+	int rr = KMPMatch2(s.c_str(), bba.c_str());
 	int *nn = new int[s.length()];
 	getNext(s.c_str(), nn);
 	for (int i = 0; i < s.length(); i++)
