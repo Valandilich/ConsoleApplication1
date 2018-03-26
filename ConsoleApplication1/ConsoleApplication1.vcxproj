@@ -96,7 +96,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -145,32 +145,24 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="heap.h" />
-    <ClInclude Include="KMP.h" />
-    <ClInclude Include="LinkList.h" />
-    <ClInclude Include="mergeSort.h" />
-    <ClInclude Include="myCoreF.h" />
-    <ClInclude Include="myString.h" />
-    <ClInclude Include="quickSort.h" />
-    <ClInclude Include="RBTree.h" />
-    <ClInclude Include="SlipWindow.h" />
-    <ClInclude Include="search.h" />
-    <ClInclude Include="stdafx.h" />
-    <ClInclude Include="targetver.h" />
-    <ClInclude Include="tree.h" />
-    <ClInclude Include="virtual.h" />
+    <ClCompile Include="src\ConsoleApplication1.cpp" />
+    <ClCompile Include="src\LinkList.cpp" />
+    <ClCompile Include="src\RBTree.cpp" />
+    <ClCompile Include="src\tree.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ConsoleApplication1.cpp" />
-    <ClCompile Include="LinkList.cpp" />
-    <ClCompile Include="RBTree.cpp" />
-    <ClCompile Include="stdafx.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
-    </ClCompile>
-    <ClCompile Include="tree.cpp" />
+    <ClInclude Include="src\heap.h" />
+    <ClInclude Include="src\KMP.h" />
+    <ClInclude Include="src\LinkList.h" />
+    <ClInclude Include="src\mergeSort.h" />
+    <ClInclude Include="src\myCoreF.h" />
+    <ClInclude Include="src\myString.h" />
+    <ClInclude Include="src\quickSort.h" />
+    <ClInclude Include="src\RBTree.h" />
+    <ClInclude Include="src\search.h" />
+    <ClInclude Include="src\SlipWindow.h" />
+    <ClInclude Include="src\tree.h" />
+    <ClInclude Include="src\virtual.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

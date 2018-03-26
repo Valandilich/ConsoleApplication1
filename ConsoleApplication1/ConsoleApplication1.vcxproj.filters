@@ -18,64 +18,55 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="stdafx.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="targetver.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="mergeSort.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="SlipWindow.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="heap.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="quickSort.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="tree.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="LinkList.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="search.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="myCoreF.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="RBTree.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="virtual.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="myString.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="KMP.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
+    <ClCompile Include="src\ConsoleApplication1.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\LinkList.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\RBTree.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\tree.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="stdafx.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="ConsoleApplication1.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="tree.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="LinkList.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="RBTree.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
+    <ClInclude Include="src\heap.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\KMP.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\LinkList.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\mergeSort.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\myCoreF.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\myString.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\quickSort.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\RBTree.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\search.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SlipWindow.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\tree.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\virtual.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
