@@ -134,6 +134,24 @@ vector<int> MyTreeS::SerialOutPut()
 	return result;
 }
 
+int MyTreeS::MaxDeep()
+{
+	MyTreeNodeS* r = &Root;
+	return MaxDeep_Sub(r);
+}
+
+int MyTreeS::MinDeep()
+{
+	MyTreeNodeS* r = &Root;
+	return MinDeep_Sub(r);;
+}
+
+int MyTreeS::NodeNumber()
+{
+	MyTreeNodeS* r = &Root;
+	return NodeNumber_Sub(r);
+}
+
 void MyTreeS::Rebuild_MidPre(vector<int>& Mid, vector<int>& Pre)
 {
 	MyTreeNodeS* r = Rebuild_MidPre_Sub(Mid, Pre);
@@ -245,6 +263,30 @@ void MyTreeS::Mirror_sub(MyTreeNodeS*r)
 	r->Left = r->Right;
 	r->Right = temp;
 	return;
+}
+int MyTreeS::MaxDeep_Sub(MyTreeNodeS * root)
+{
+	if (!root)
+		return 0;
+	int Left = MaxDeep_Sub(root->Left);
+	int Right = MaxDeep_Sub(root->Right);
+	return Left>Right?(Left+1):(Right+1);
+}
+int MyTreeS::MinDeep_Sub(MyTreeNodeS * root)
+{
+	if (!root)
+		return 0;
+	int Left = MaxDeep_Sub(root->Left);
+	int Right = MaxDeep_Sub(root->Right);
+	return Left < Right ? (Left + 1) : (Right + 1);
+}
+int MyTreeS::NodeNumber_Sub(MyTreeNodeS * root)
+{
+	if (!root)
+		return 0;
+	int Left = NodeNumber_Sub(root->Left);
+	int Right = NodeNumber_Sub(root->Right);
+	return Left + Right +1;
 }
 bool isSubTree_sub(MyTreeNodeS * A, MyTreeNodeS * B)
 {

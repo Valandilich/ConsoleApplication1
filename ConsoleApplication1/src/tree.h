@@ -37,6 +37,9 @@ public:
 	vector<int> midTravel();
 	vector<int> postTravel();
 	vector<int> SerialOutPut();
+	int MaxDeep();
+	int MinDeep();
+	int NodeNumber();
 	void  Rebuild_MidPre(vector<int> &Mid, vector<int>&Pre);
 	void Rebuild_MidPost(vector<int> &Mid, vector<int> &Post);
 	MyTreeNodeS* getTheLowestRoot(int a, int b);
@@ -49,6 +52,9 @@ private:
 	void midTravel_sub(MyTreeNodeS * r, vector<int>& re);
 	void postTravel_sub(MyTreeNodeS * r, vector<int>& re);
 	void Mirror_sub(MyTreeNodeS * r);
+	int MaxDeep_Sub(MyTreeNodeS* root);
+	int MinDeep_Sub(MyTreeNodeS* root);
+	int NodeNumber_Sub(MyTreeNodeS* root);
 private:
 	MyTreeNodeS Root;
 };
