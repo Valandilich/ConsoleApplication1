@@ -1,4 +1,4 @@
-#include "stdafx.h"
+
 #include "LinkList.h"
 
 bool MyLinkList::AddNode(int offset, int value)
@@ -71,7 +71,7 @@ bool MyLinkList::Reverse()
 			p = q;
 			q = r;
 	}
-	Head->next = NULL;
+	Head->next = nullptr;
 	Head = p;	
 	return false;
 }
@@ -98,7 +98,7 @@ void MyLinkList::MakeList(vector<int>& input)
 		}
 		it++;
 	}
-	p->next = NULL;
+	p->next = nullptr;
 	return;
 }
 

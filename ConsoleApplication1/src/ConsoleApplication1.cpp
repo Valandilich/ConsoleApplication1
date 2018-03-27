@@ -1,7 +1,6 @@
-// ConsoleApplication1.cpp : ¶¨Òå¿ØÖÆÌ¨Ó¦ÓÃ³ÌÐòµÄÈë¿Úµã¡£
+// ConsoleApplication1.cpp : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì¨Ó¦ï¿½Ã³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Úµã¡£
 //
 
-#include "stdafx.h"
 #include "mergeSort.h"
 #include <stdio.h>
 #include <iostream>

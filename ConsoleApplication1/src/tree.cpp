@@ -1,4 +1,4 @@
-#include "stdafx.h"
+
 #include "tree.h"
 
 bool MyTreeS::MakeTree(vector<int> inputList)
@@ -174,7 +174,7 @@ MyTreeNodeS * MyTreeS::getTheLowestRoot(int a, int b)
 MyTreeNodeS * MyTreeS::getTheLowestRoot_sub(MyTreeNodeS* r, int a, int b)
 {
 	if (!r)
-		return NULL;
+		return nullptr;
 	else if (r->value == a)
 		return r;
 	else if (r->value == b)
@@ -188,7 +188,7 @@ MyTreeNodeS * MyTreeS::getTheLowestRoot_sub(MyTreeNodeS* r, int a, int b)
 	else if (L&& R)
 		return r;
 	else
-		return NULL;
+		return nullptr;
 }
 
 bool isSubTree(MyTreeS & A, MyTreeS & B)
@@ -205,10 +205,10 @@ MyTreeNodeS* MyTreeS::Rebuild_MidPre_Sub(vector<int>& Mid, vector<int>& Pre)
 {
 	if (Mid.size() < 1 || Pre.size() < 1)
 	{
-		return NULL;
+		return nullptr;
 	}
 	if (Mid.size() != Pre.size())
-		return NULL;
+		return nullptr;
 	vector<int> LMid;
 	vector<int> LPre;
 	vector<int> RMid;
@@ -269,10 +269,10 @@ MyTreeNodeS* MyTreeS::Rebuild_MidPost_Sub(vector<int>& Mid, vector<int>& Post)
 {
 	if (Mid.size() < 1 || Post.size() < 1)
 	{
-		return NULL;
+		return nullptr;
 	}
 	if (Mid.size() != Post.size())
-		return NULL;
+		return nullptr;
 	vector<int> LMid;
 	vector<int> LPre;
 	vector<int> RMid;

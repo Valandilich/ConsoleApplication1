@@ -19,7 +19,7 @@ private:
 	MyLinkNodeS* Head;
 
 public:
-	MyLinkList() { Head = NULL; }
+	MyLinkList() { Head = nullptr; }
 	bool AddNode(int offset, int value);
 	int RemoveNode(int offset);
 	bool Reverse();

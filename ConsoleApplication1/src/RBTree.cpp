@@ -1,11 +1,11 @@
-#include "stdafx.h"
+
 #include "RBTree.h"
 
 RBTreeNode * RBTree::Tree_Min_Node()
 {
 	RBTreeNode* p = Root;
 	if (p == &NIL)
-		return NULL;
+		return nullptr;
 	while (p != &NIL)
 	{
 		p = p->Left;
@@ -17,7 +17,7 @@ RBTreeNode * RBTree::Tree_Max_Node()
 {
 	RBTreeNode* p = Root;
 	if (p == &NIL)
-		return NULL;
+		return nullptr;
 	while (p->Right != &NIL)
 	{
 		p = p->Right;
@@ -79,7 +79,7 @@ void RBTree::Node_Right_Rotate(RBTreeNode*z)
 RBTreeNode* RBTree::Find_in(RBTreeNode * p, int n)
 {
 	if (p == &NIL)
-		return NULL;
+		return nullptr;
 	if (p->value == n)
 		return p;
 	if (n> p->value)
