@@ -1,5 +1,5 @@
 #pragma once
-#include <string>
+#include <string.h>
 using namespace std;
 void getNext(const char *p, int *next)
 {
@@ -9,7 +9,7 @@ void getNext(const char *p, int *next)
 	k = -1;
 	while (j<strlen(p) - 1)
 	{
-		if (k == -1 || p[j] == p[k])    //Æ¥ÅäµÄÇé¿öÏÂ,p[j]==p[k]
+		if (k == -1 || p[j] == p[k])    //Æ¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,p[j]==p[k]
 		{
 			j++;
 			k++;
@@ -37,7 +37,7 @@ int KMPMatch(char *s, char *p)
 		}
 		else
 		{
-			j = next[j];       //Ïû³ýÁËÖ¸ÕëiµÄ»ØËÝ
+			j = next[j];       //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½iï¿½Ä»ï¿½ï¿½ï¿½
 		}
 		if (j == strlen(p))
 			return i - strlen(p);
