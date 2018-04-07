@@ -9,19 +9,26 @@ bool MyTreeS::MakeTree(vector<int> inputList)
 	while (!inputList.empty())
 	{
 		it = inputList.begin();
-		(*OptQueue.begin())->value = *it;
-		(*OptQueue.begin())->isNULL = false;
-		if(OptQueue.size()<inputList.size())
+		if (*it != -1)
+		{
+			(*OptQueue.begin())->value = *it;
+			(*OptQueue.begin())->isNULL = false;
+		}	
+		else
+		{
+			(*OptQueue.begin())->value = *it;
+			(*OptQueue.begin())->isNULL = true;
+		}
+		if (OptQueue.size() < inputList.size())
 		{
 			(*OptQueue.begin())->Left = new MyTreeNodeS;
 			OptQueue.push_back((*OptQueue.begin())->Left);
 		}
-		if (OptQueue.size()<inputList.size())
-		{ 
+		if (OptQueue.size() < inputList.size())
+		{
 			(*OptQueue.begin())->Right = new MyTreeNodeS;
 			OptQueue.push_back((*OptQueue.begin())->Right);
 		}
-		
 		OptQueue.erase(OptQueue.begin());
 		inputList.erase(it);
 	}
@@ -32,6 +39,7 @@ bool MyTreeS::MakeTree(vector<int> inputList)
 	//	itt++;
 	//}
 	OptQueue.clear();
+	pruning(&Root);
 	return true;
 }
 void MyTreeS:: preTravel_sub(MyTreeNodeS* r, vector<int>& re)
@@ -121,16 +129,28 @@ vector<int> MyTreeS::SerialOutPut()
 	while (!optQueue.empty())
 	{
 		vector<MyTreeNodeS*>::iterator it = optQueue.begin();
-		if ((*it)->isNULL)
-			break;
+
 		result.push_back((*it)->value);
 		if((*it)->Left)
 			optQueue.push_back((*it)->Left);
+		else
+		{
+			(*it)->Left = new MyTreeNodeS;
+			optQueue.push_back((*it)->Left);
+		}
 		it = optQueue.begin();
 		if ((*it)->Right)
 			optQueue.push_back((*it)->Right);
+		else
+		{
+			(*it)->Right = new MyTreeNodeS;
+			optQueue.push_back((*it)->Right);
+		}
 		optQueue.erase(optQueue.begin());
+		if (AllEmpty(optQueue))
+			break;
 	}
+	pruning(r);
 	return result;
 }
 
@@ -288,6 +308,71 @@ int MyTreeS::NodeNumber_Sub(MyTreeNodeS * root)
 	int Right = NodeNumber_Sub(root->Right);
 	return Left + Right +1;
 }
+bool MyTreeS::isBallence_Sub(MyTreeNodeS * root)
+{
+	if (!root)
+		return true;
+	bool isL = isBallence_Sub(root->Left);
+	bool isR = isBallence_Sub(root->Right);
+	if (!isL || !isR)
+		return false;
+	int L = MaxDeep_Sub(root->Left);
+	int R = MaxDeep_Sub(root->Right);
+	if (L - R > 1 || R - L > 1)
+		return false;
+	return true;
+}
+bool MyTreeS::isComplete_Sub(MyTreeNodeS * root)
+{
+	if (!root)
+		return true;
+	bool LC = isComplete_Sub(root->Left);
+	bool LR = isComplete_Sub(root->Right);
+	if (!LC || !LR)
+		return false;
+	if (root->Right && !root->Left)
+		return false;
+	bool B = isBallence_Sub(root);
+	return B;
+}
+bool MyTreeS::pruning(MyTreeNodeS * root)
+{
+	if (root->isNULL)
+		return false;
+	else
+	{
+		if (!root->Left)
+			;
+		else if(!(root->Left->isNULL))
+			pruning(root->Left);
+		else
+		{
+			delete (root->Left);
+			root->Left = NULL;
+		}
+		if (!root->Right)
+			;
+		else if(!(root->Right->isNULL))
+			pruning(root->Right);
+		else
+		{
+			delete (root->Right);
+			root->Right = NULL;
+		}
+	}
+	return true;
+}
+bool MyTreeS::AllEmpty(vector<MyTreeNodeS*>& vqueue)
+{
+	vector<MyTreeNodeS*>::iterator it = vqueue.begin();
+	while (it != vqueue.end())
+	{
+		if (!((*it)->isNULL))
+			return false;
+		it++;
+	}
+	return true;
+}
 bool isSubTree_sub(MyTreeNodeS * A, MyTreeNodeS * B)
 {
 	if (!B)
@@ -298,6 +383,24 @@ bool isSubTree_sub(MyTreeNodeS * A, MyTreeNodeS * B)
 		return (isSubTree_sub(A->Left, B->Left) && isSubTree_sub(A->Right, B->Right));
 	return false;
 }
+bool isSame(MyTreeS & A, MyTreeS & B)
+{
+	if (B.GetRoot().isNULL || A.GetRoot().isNULL)
+		return false;
+	return isSame_Sub(&(A.GetRoot()), &(B.GetRoot()));
+}
+bool isSame_Sub(MyTreeNodeS * A, MyTreeNodeS * B)
+{
+	if(A->value != B->value)
+		return false;
+	bool SameLeft = isSame_Sub(A->Left, B->Left);
+	if (!SameLeft)
+		return false;
+	bool SameRight = isSame_Sub(A->Right,B->Right);
+	if (!SameRight)
+		return false;
+	return true;
+}
 void MyTreeS::Mirror()
 {
 	MyTreeNodeS* r = &Root;
@@ -305,6 +408,18 @@ void MyTreeS::Mirror()
 		return;
 	Mirror_sub(r);
 	return;
+}
+
+bool MyTreeS::isBallence()
+{
+	MyTreeNodeS* r = &Root;
+	return isBallence_Sub(r);
+}
+
+bool MyTreeS::isComplete()
+{
+	MyTreeNodeS* r = &Root;
+	return isComplete_Sub(r);
 }
 
 MyTreeNodeS* MyTreeS::Rebuild_MidPost_Sub(vector<int>& Mid, vector<int>& Post)

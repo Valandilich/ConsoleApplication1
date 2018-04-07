@@ -12,7 +12,7 @@ struct MyTreeNodeS
 	bool isNULL;
 	MyTreeNodeS()
 	{
-		value = 0;
+		value = -1;
 		isNULL = true;
 		Left = Right = nullptr;
 	}
@@ -40,10 +40,12 @@ public:
 	int MaxDeep();
 	int MinDeep();
 	int NodeNumber();
-	void  Rebuild_MidPre(vector<int> &Mid, vector<int>&Pre);
+	void Rebuild_MidPre(vector<int> &Mid, vector<int>&Pre);
 	void Rebuild_MidPost(vector<int> &Mid, vector<int> &Post);
 	MyTreeNodeS* getTheLowestRoot(int a, int b);
 	void Mirror();
+	bool isBallence();
+	bool isComplete();
 private:
 	MyTreeNodeS* getTheLowestRoot_sub(MyTreeNodeS* r, int a, int b);
 	MyTreeNodeS* Rebuild_MidPre_Sub(vector<int> &Mid, vector<int>&Pre);
@@ -55,9 +57,16 @@ private:
 	int MaxDeep_Sub(MyTreeNodeS* root);
 	int MinDeep_Sub(MyTreeNodeS* root);
 	int NodeNumber_Sub(MyTreeNodeS* root);
+	bool isBallence_Sub(MyTreeNodeS* root);
+	bool isComplete_Sub(MyTreeNodeS* root);
+	bool pruning(MyTreeNodeS*root);
+	bool AllEmpty(vector<MyTreeNodeS*>&vqueue);
 private:
 	MyTreeNodeS Root;
+	MyTreeNodeS NIL;
 };
 bool isSubTree(MyTreeS &A, MyTreeS &B);
 bool isSubTree_sub(MyTreeNodeS* A, MyTreeNodeS* B);
+bool isSame(MyTreeS& A, MyTreeS &B);
+bool isSame_Sub(MyTreeNodeS* A, MyTreeNodeS* B);
 

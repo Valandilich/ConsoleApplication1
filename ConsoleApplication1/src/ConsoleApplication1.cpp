@@ -132,16 +132,25 @@ typedef map<char, vector<char>> SPEPAIR;
 //}
 int main()
 {
- 	vector<int> a = { 4,1,5,2,9,8,7,6,3};
+ 	vector<int> a = { 1,2,3,-1,4,5,-1,-1,-1,6,-1,7,-1,-1,-1,-1,-1,-1,-1,8,9};
+	vector<int> b = { 1,2,3,4,5,7,-1 };
 	vector<int> n;
 
+	MyTreeS BTree;
+	BTree.MakeTree(b);
+	bool isBC = BTree.isComplete();
  	MyTreeS ATree;
  	ATree.MakeTree(a);
 	MyTreeNodeS* re = ATree.getTheLowestRoot(6,7);
+	vector<int>pre = ATree.preTravel();
+	vector<int>post = ATree.postTravel();
+	vector<int>mid = ATree.midTravel();
 	int Deep = ATree.MaxDeep();
 	int MDeep = ATree.MinDeep();
 	int Total = ATree.NodeNumber();
- 	//vector<int>b = ATree.preTravel();
+ 	vector<int>S = ATree.SerialOutPut();
+	bool isB = ATree.isBallence();
+	bool isC = ATree.isComplete();
  	//vector<int>c = ATree.midTravel();
  	//vector<int>d = ATree.postTravel();
  	//vector<int>e = ATree.SerialOutPut();

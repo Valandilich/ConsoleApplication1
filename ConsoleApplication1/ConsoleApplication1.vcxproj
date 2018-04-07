@@ -149,6 +149,7 @@
     <ClCompile Include="src\LinkList.cpp" />
     <ClCompile Include="src\RBTree.cpp" />
     <ClCompile Include="src\tree.cpp" />
+    <ClCompile Include="源.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\heap.h" />
