@@ -60,19 +60,19 @@ int MyLinkList::RemoveNode(int offset)
 bool MyLinkList::Reverse()
 {
 	MyLinkNodeS *p, *q, *r;
-	if (!Head)
+	if (!Head||!(Head->next))
 		return false;
 	p = Head;
 	q = p->next;
 	while (q)
-	{		
-			r = q->next;
-			q->next = p;
-			p = q;
-			q = r;
+	{
+		r = q->next;
+		q->next = p;
+		p = q;
+		q = r;
 	}
-	Head->next = nullptr;
-	Head = p;	
+	Head->next = NULL;
+	Head = p;
 	return false;
 }
 
