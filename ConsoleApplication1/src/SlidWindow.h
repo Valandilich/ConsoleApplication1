@@ -134,34 +134,12 @@ private:
 
 int test() {
 	int c = 0;
-	uint64_t t1 = 0;
-	uint64_t t2 = 0;
 	uint64_t t3 = 0;
 	uint64_t t4 = 0;
 	for (int cc = 0; cc < 1; cc++)
 	{
 		std::vector<int> testData;
 		DataCreator(testData, 10000000);
-		//TheWindow tw;
-		auto t11 = UNow();
-		vector<int> res;
-		res.reserve(1000000);
-		/*for (auto it : testData) {
-			if (res.empty()) {
-				res.push_back(it);
-			}
-			else {
-				auto offset = getPosD(res, 0, res.size() - 1, it);
-				res.insert(res.begin() + offset, it);
-			}
-		}*/
-		t1 += UNow() - t11;
-		auto t21 = UNow();
-		/*std::set<int> res2;
-		for (auto it : testData) {
-			res2.insert(it);
-		}*/
-		t2 += UNow() - t21;
 
 		auto t31 = UNow();
 		TheWindow tw1(10);
