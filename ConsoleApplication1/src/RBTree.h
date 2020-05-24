@@ -9,9 +9,17 @@ struct RBTreeNode
 	RBTreeNode* Right;
 	RBTreeNode* Parent;
 	bool isRed;
+	int left_sub_node_num;
+	int right_sub_node_num;
 	RBTreeNode(RBTreeNode& nil)
 	{
 		value = 0;
+		Left = Right = Parent = &nil;
+		isRed = true;
+	}
+	RBTreeNode(int val)
+	{
+		value = val;
 		Left = Right = Parent = &nil;
 		isRed = true;
 	}
@@ -31,7 +39,7 @@ private:
 	void Node_Right_Rotate(RBTreeNode* z);
 	RBTreeNode* Find_in(RBTreeNode* p, int n);
 public:
-	void Insert(RBTreeNode*);
-	void Delete(RBTreeNode*);
+	bool Insert(int data);
+    bool Delete(int data);
 	RBTreeNode* Find(int n);
 };
